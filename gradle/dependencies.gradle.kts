@@ -361,7 +361,7 @@ object Deps {
 val commandRegex = "\\s".toRegex()
 
 fun String.execute(workingDir: File): String? {
-  try {
+  return try {
     val parts = split(commandRegex)
     val proc = ProcessBuilder(*parts.toTypedArray())
         .directory(workingDir)
@@ -370,9 +370,9 @@ fun String.execute(workingDir: File): String? {
         .start()
 
     proc.waitFor(5, TimeUnit.SECONDS)
-    return proc.inputStream.bufferedReader().readText().trim()
+    proc.inputStream.bufferedReader().readText().trim()
   } catch(e: IOException) {
     e.printStackTrace()
-    return null
+    null
   }
 }
