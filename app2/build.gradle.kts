@@ -1,3 +1,6 @@
+import org.gradle.kotlin.dsl.apply
+import org.gradle.kotlin.dsl.repositories
+
 /*
  * Copyright (c) 2017 Zac Sweers
  *
@@ -14,7 +17,9 @@
  * limitations under the License.
  */
 
-applyFrom(rootProject.file("gradle/dependencies.gradle.kts"))
+//apply {
+//  from(rootProject.file("gradle/dependencies.gradle.kts"))
+//}
 
 buildscript {
   repositories {
